@@ -10,9 +10,9 @@ if exists("g:loaded_highlightf90") || &cp || v:version < 700
 endif
 let g:loaded_highlightf90 = 1
 if has('nvim')
-    let g:syntax_filepath ='.config/nvim'
+    let s:syntax_filepath ='.config/nvim'
 else
-    let g:syntax_filepath ='.vim'
+    let s:syntax_filepath ='.vim'
 endif
 function! GenerateTags()
 :w!
@@ -22,9 +22,16 @@ import re
 import os
 home=os.environ['HOME']
 name=vim.eval('expand("%:p")')
-syntax_file=vim.eval('g:syntax_filepath')
-syntax_file = "".join([home,'/',syntax_file,"/after/syntax/fortran.vim"])
-print(syntax_file)
+filepath=vim.eval('s:syntax_filepath')
+filepath = "".join([home,'/',filepath,"/after/syntax"])
+path_exist=os.path.exists(filepath)
+if not path_exist:
+    os.makedirs(filepath)
+syntax_file=filepath+"/fortran.vim"
+path_exist=os.path.exists(syntax_file)
+if not path_exist:
+    with open(syntax_file, 'w') as f:
+        f.write('syn case ignore\n')
 with open(name, 'r') as f:
     input_data=f.read()
 functions= re.findall(r'(?i)(?:function|subroutine)\s+(\w*)\s*\(',input_data, re.DOTALL)
@@ -34,7 +41,7 @@ with open(syntax_file, 'r') as f:
 numoffunction=existing.count('\n')
 if(numoffunction>1000):
     with open(syntax_file, 'w') as f:
-        f.write('syn case ingore\n')
+        f.write('syn case ignore\n')
         for tag in functions:
             f.write('syn keyword function %s\n' % tag)
 else:
@@ -48,6 +55,6 @@ EOF
 redraw!
 :e
 endfunction
-autocmd BufWritePre,FileWritePre *.f90 call GenerateTags()
+autocmd BufWritePre,FileWritePre *.f90,*.F90,*.f,*.for call GenerateTags()
 
 " vim:set ft=vim sw=4 sts=4 et:
