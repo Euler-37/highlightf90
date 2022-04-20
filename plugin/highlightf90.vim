@@ -27,7 +27,7 @@ syntax_file = "".join([home,'/',syntax_file,"/after/syntax/fortran.vim"])
 print(syntax_file)
 with open(name, 'r') as f:
     input_data=f.read()
-functions= re.findall(r'(?i)(?:function|subroutine)\s+(\w*)\(',input_data, re.DOTALL)
+functions= re.findall(r'(?i)(?:function|subroutine)\s+(\w*)\s*\(',input_data, re.DOTALL)
 functions=list(dict.fromkeys(functions))
 with open(syntax_file, 'r') as f:
     existing=f.read()
