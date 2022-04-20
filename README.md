@@ -5,8 +5,12 @@ highlight fortran90 functions and subroutines
 **a plugin by runoob vimmer**
 
 # usage
-1. `touch ~/.vim/after/syntax/fortran.vim` or `touch ~/.config/nvim/after/syntax/fortran.vim`
-2.  it will auto run when the current file saved
+0. install
+``` vim
+Plug 'Euler-37/highlight90,{'for':['fortran','plug']}'
+```
+2. and syntax file ,`touch ~/.vim/after/syntax/fortran.vim` or `touch ~/.config/nvim/after/syntax/fortran.vim`
+3. It will auto update when the current file saved
 
 # remarks
 1. this plugin will generate tags for current files,and append highlight in syntax file
