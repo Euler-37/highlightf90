@@ -5,7 +5,7 @@ highlight fortran90 functions and subroutines
 **a plugin by runoob vimmer**
 
 # usage
-0. install
+1. install
 ``` vim
 Plug 'Euler-37/highlight90,{'for':['fortran','plug']}'
 ```
