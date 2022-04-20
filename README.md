@@ -4,6 +4,9 @@ highlight fortran90 functions and subroutines
 # Warning
 **a plugin by runoob vimmer**
 
+# depend
+- `+python3`
+
 # usage
 1. install
 ``` vim
