@@ -9,9 +9,7 @@ highlight fortran90 functions and subroutines
 ``` vim
 Plug 'Euler-37/highlight90,{'for':['fortran','plug']}'
 ```
-2. and syntax file ,`touch ~/.vim/after/syntax/fortran.vim` or `touch ~/.config/nvim/after/syntax/fortran.vim`
-3. and the first line `syn case ingore`
-4. It will auto update when the current file saved
+2. It will auto update when the current file saved
 
 # remarks
 1. this plugin will generate tags for current files,and append highlight in syntax file
