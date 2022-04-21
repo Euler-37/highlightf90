@@ -17,5 +17,5 @@ Plug 'Euler-37/highlight90,{'for':['fortran','plug']}'
 # remarks
 1. this plugin will generate tags for current files,and append highlight in syntax file
 2. if the line of syntax file is bigger than 1000,file will be clean and regenerate.
-3. only work for `subroutine` and `function`
+3. work for `subrotuine,function,interface,generic`
 4. may have bugs ,(for windows `$HOME` path)
