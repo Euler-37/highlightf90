@@ -86,6 +86,22 @@ EOF
 redraw!
 :e
 endfunction
+
+function! ClearTags()
+python3<< EOF
+import vim
+import re
+import os
+home=os.environ['HOME']
+name=vim.eval('expand("%:p")')
+filepath=vim.eval('s:syntax_filepath')
+syntax_file = "".join([home,'/',filepath,"/after/syntax/fortran.vim"])
+path_exist=os.path.exists(syntax_file)
+if path_exist:
+    os.remove(syntax_file)
+EOF
+endfunction
+
 autocmd BufWritePre,FileWritePre *.f90,*.F90,*.f,*.for call GenerateTags()
 
 " vim:set ft=vim sw=4 sts=4 et:
