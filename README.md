@@ -10,7 +10,7 @@ highlight fortran90 functions and subroutines
 # usage
 1. install
 ``` vim
-Plug 'Euler-37/highlight90,{'for':['fortran','plug']}'
+Plug 'Euler-37/highlight90',{'for':['fortran','plug']}
 ```
 2. It will auto update when the current file saved
 
