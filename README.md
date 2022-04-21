@@ -19,6 +19,7 @@ autocmd BufEnter *.f90,*.f,*.for,*.F90 hi UserType guifg=#21e7e1 gui=italic
 autocmd BufEnter *.f90,*.f,*.for,*.F90 hi UserModule guifg=#f89860 gui=italic 
 ```
 3. It will auto update when the current file saved
+4. If want to clear syntax file just run `:call ClearTags()`
 
 
 
