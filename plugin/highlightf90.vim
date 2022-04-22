@@ -42,9 +42,11 @@ interface=list(map(lambda x:x.lower(),interface))
 interface=list(dict.fromkeys(interface))
 generic  =re.findall(r'(?i)(?:generic|procedure).*::\x20*(\w+)',input_data)
 generic  =list(map(lambda x:x.lower(),generic))
+generic  =list(dict.fromkeys(generic))
 if 'operator' in generic:
     generic.remove('operator')
-generic  =list(dict.fromkeys(generic))
+if 'assignment' in generic:
+    generic.remove('assignment')
 functions.extend(interface)
 functions.extend(generic)
 types    =re.findall(r'(?i)(?:type)\x20+(\w+)',input_data)
